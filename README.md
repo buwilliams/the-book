@@ -1,3 +1,9 @@
+# Learning Rust
+
+I'm reading and working throug the exercises provided in [The Book](https://doc.rust-lang.org/book).
+
+## Notes
+
 - Hello, world. Rust=0.001,0 Node.js=0.026,0.026
 - "The Book" is approachable
 - Rust is on to something: High-level ergonomics and low-level control are often at odds in programming language design; Rust challenges that conflict. (Introduction, first paragraph)
