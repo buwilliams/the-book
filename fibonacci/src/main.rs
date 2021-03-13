@@ -1,27 +1,29 @@
 use std::io;
 
 fn main() {
-    let mut input = String::new();
+    loop {
+        let mut input = String::new();
 
-    println!("Which fibonacci number do you want? ");
+        println!("Which fibonacci number do you want? ");
 
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line");
 
-    let input: u64 = input
-        .trim()
-        .parse()
-        .expect("Not a number");
+        let input: u64 = match input.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue
+        };
 
-    println!("You asked for the fibonacci of: {}", input);
+        println!("You asked for the fibonacci of: {}", input);
 
-    if input > 94 { 
-        println!("The maximum fibonacci is 94 for u64 scalar data type.");
-        return;
+        if input > 94 { 
+            println!("The maximum fibonacci is 94 for u64 scalar data type.");
+            continue;
+        }
+
+        fib(input);
     }
-
-    fib(input);
 }
 
 fn fib(nth: u64) {
