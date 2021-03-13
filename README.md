@@ -1,6 +1,6 @@
 # Learning Rust
 
-I'm reading and working through the exercises provided in [The Book](https://doc.rust-lang.org/book).
+Reading and working through the exercises provided in [The Book](https://doc.rust-lang.org/book).
 
 ## Notes
 
