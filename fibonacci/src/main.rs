@@ -9,22 +9,27 @@ fn main() {
         .read_line(&mut input)
         .expect("Failed to read line");
 
-    let input: i64 = input
+    let input: u64 = input
         .trim()
         .parse()
         .expect("Not a number");
 
     println!("You asked for the fibonacci of: {}", input);
 
+    if input > 94 { 
+        println!("The maximum fibonacci is 94 for u64 scalar data type.");
+        return;
+    }
+
     fib(input);
 }
 
-fn fib(nth: i64) {
-    let mut first: i64;
-    let mut second: i64 = 0;
-    let mut sum: i64 = 1;
+fn fib(nth: u64) {
+    let mut first: u64;
+    let mut second: u64 = 0;
+    let mut sum: u64 = 1;
 
-    let mut count: i64 = 2;
+    let mut count: u64 = 2;
 
     match nth {
         1 => {
