@@ -21,6 +21,7 @@ Data Types:
 - Scalar Types: integer=u32, floating-point numbers=f64, Booleans=bool, and characters=char
 - Compound Types: tuples=tup (fixed size of different types), arrays=array (fixed size of same type)
 - Vectors (dynamic size)
+- integer types default to `i32`
 
 Functions:
 - fn (snakecase and lowercase: my_awesome_function)
@@ -78,3 +79,9 @@ let hello = &s[..5]; // slice
 ```
 
 - string literals are slices and immutable
+- there are other slices as well
+
+```rust
+let a = [1, 2, 3, 4, 5];
+let slice = &a[1..3];
+```
