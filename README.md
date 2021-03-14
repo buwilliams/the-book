@@ -13,17 +13,18 @@ Reading and working through the exercises provided in [The Book](https://doc.rus
 - cargo new, cargo run, cargo build, cargo build --release, cargo doc, cargo update
 - Cargo.toml, Cargo.lock, semver
 
-Guessing Game:
+## Guessing Game
 - use, loop, fn, println! (macro), let, match
 - Shadowing is very cool, I wish I had this in other languages
 
-Data Types:
+## Data Types
+
 - Scalar Types: integer=u32, floating-point numbers=f64, Booleans=bool, and characters=char
 - Compound Types: tuples=tup (fixed size of different types), arrays=array (fixed size of same type)
 - Vectors (dynamic size)
 - integer types default to `i32`
 
-Functions:
+## Functions
 - fn (snakecase and lowercase: my_awesome_function)
 - Rust is an expression-based language
 - Statements are instructions that perform some action and do not return a value.
@@ -32,7 +33,8 @@ Functions:
 - return is signified by an arrow `->` (fn foo() -> u32 {})
 - return synonymous with the value of the final expression in the block of the body of a function therefore `return` is optional
 
-Control flow:
+## Control flow
+
 - if, loop, while, for (no parens used)
 - they are expressions which means they can be assigned
 
@@ -57,7 +59,9 @@ More on ownership:
 - simple scalar values use copy annotation (but nothing that uses allocation)
 - passing a value to a function changes it's ownership to that function scope (important)
 
-References (borrowing):
+## References and borrowing:
+
+References:
 - `&` denotes a reference, dereferencing uses `*`
 - having a referencing is called `borrowing`
 - we **cannot mutate references** since we do not own it
@@ -69,7 +73,8 @@ Reference Rules:
 - At any given time, you can have either one mutable reference or any number of immutable references.
 - References must always be valie (no `dangling` refs)
 
-Slices:
+## Slices
+
 - slices do not have ownership just like simple scalars
 - [n..x] or [n..] or [..n] or [..]
 
