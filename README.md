@@ -34,3 +34,47 @@ Functions:
 Control flow:
 - if, loop, while, for (no parens used)
 - they are expressions which means they can be assigned
+
+## Ownership (move, drop, copy, clone)
+
+Ownership:
+- garbage colleciton, manual allocation
+- Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
+- stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
+
+Three rules of ownership:
+1. each value in rust has a variable owner
+2. there can only be one owner
+3. when the owner goes out of scope, the value is dropped
+
+More on ownership:
+- passing ownership is called `move`
+- double assignment invalidates the original variable
+- shallow and deep copy of memory (stack, heap)
+- clone (heap) and copy (stack)
+- annotation: copy, drop
+- simple scalar values use copy annotation (but nothing that uses allocation)
+- passing a value to a function changes it's ownership to that function scope (important)
+
+References (borrowing):
+- `&` denotes a reference, dereferencing uses `*`
+- having a referencing is called `borrowing`
+- we **cannot mutate references** since we do not own it
+- we can mutate references if we use `&mut some_var` and `fn(foo: &mut String)`
+- can only have one mutable reference to the same data in the same scope (new Rustaceans struggle with this because most languages let you mutate whenever you’d like but it's used to prevent `data races` at compile time)
+- Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used
+
+Reference Rules:
+- At any given time, you can have either one mutable reference or any number of immutable references.
+- References must always be valie (no `dangling` refs)
+
+Slices:
+- slices do not have ownership just like simple scalars
+- [n..x] or [n..] or [..n] or [..]
+
+```rust
+let s = String::from("hello, world.");
+let hello = &s[..5]; // slice
+```
+
+- string literals are slices and immutable
