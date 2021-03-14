@@ -57,6 +57,8 @@ Three rules of ownership:
 2. there can only be one owner
 3. when the owner goes out of scope, the value is dropped
 
+Notes:
+
 - Rust does not use garbage colleciton or manual allocation
 - Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
 - `move` passes ownership from one variable to another
