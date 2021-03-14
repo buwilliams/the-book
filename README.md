@@ -29,14 +29,20 @@ Reading and working through the exercises provided in [The Book](https://doc.rus
 - Rust is an expression-based language
 - `Statements` are instructions that perform some action and do not return a value.
 - `Expressions` evaluate to a resulting value. Expressions do not have semicolons
-- {} are expressions
+- `{ }` are expressions
 ```rust
 let y = {
     let x = 3
     x + 1 
 };
 ```
-- return types is signified by an arrow `->` (fn foo() -> u32 {})
+- the return types are signified by an arrow `->`
+```rust
+fn foo() -> u32 {
+    let bar: u32 = 10;
+    bar
+}
+```
 - return synonymous with the value of the final expression in the block of the body of a function therefore `return` is optional
 
 ## Control flow
