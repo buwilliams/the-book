@@ -1,8 +1,8 @@
 # Learning Rust
 
-Reading and working through the exercises provided in [The Book](https://doc.rust-lang.org/book).
+Reading and working through the exercises provided in [The Book](https://doc.rust-lang.org/book). This README is a collection of notes I'm making as I work my way through the book. The goal is to summarize what I learn to help me remember.
 
-## Notes
+## Introduction
 
 - Hello, world. Rust=0.001,0 Node.js=0.026,0.026
 - "The Book" is approachable
