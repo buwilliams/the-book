@@ -78,7 +78,7 @@ Rules:
 
 Notes:
 - having a referencing is called `borrowing`
-- we **cannot mutate references** since we do not own it
+- **reference data is immutable** since we do not own the referenced data
 - `&` denotes a reference, dereferencing uses `*`
 - we can mutate references if we use `&mut some_var` and `fn(foo: &mut String)`
 - can only have one mutable reference to the same data in the same scope (new Rustaceans struggle with this because most languages let you mutate whenever you’d like but it's used to prevent `data races` at compile time)
