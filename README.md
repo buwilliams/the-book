@@ -74,7 +74,7 @@ Notes:
 
 Rules:
 1. At any given time, you can have either one mutable reference or any number of immutable references.
-2. References must always be valie (no `dangling` refs)
+2. References must always be valid (no `dangling` refs)
 
 Notes:
 - having a referencing is called `borrowing`
