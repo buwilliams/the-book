@@ -43,7 +43,7 @@ fn foo() -> u32 {
     bar
 }
 ```
-- return synonymous with the value of the final expression in the block of the body of a function therefore `return` is optional
+- return is synonymous with the value of the final expression in the body of a function, therefore, `return` is optional
 
 ## Control flow
 
