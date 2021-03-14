@@ -50,9 +50,9 @@ fn foo() -> u32 {
 - if, loop, while, for (no parens used)
 - they are expressions which means they can be assigned
 
-## Ownership (move, drop, copy, clone)
+## Ownership (or memory management)
 
-Ownership:
+- move, drop, copy, clone
 - garbage colleciton, manual allocation
 - Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
 - stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
