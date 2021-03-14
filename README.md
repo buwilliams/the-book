@@ -70,7 +70,7 @@ Notes:
 - simple scalar values use copy annotation (but nothing that uses allocation)
 - passing a value to a function changes it's ownership to that function scope (important)
 
-## References:
+## References
 
 Rules:
 1. At any given time, you can have either one mutable reference or any number of immutable references.
