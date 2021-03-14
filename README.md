@@ -72,17 +72,16 @@ Notes:
 
 ## References and borrowing:
 
-References:
-- `&` denotes a reference, dereferencing uses `*`
+Rules:
+1. At any given time, you can have either one mutable reference or any number of immutable references.
+2. References must always be valie (no `dangling` refs)
+
 - having a referencing is called `borrowing`
 - we **cannot mutate references** since we do not own it
+- `&` denotes a reference, dereferencing uses `*`
 - we can mutate references if we use `&mut some_var` and `fn(foo: &mut String)`
 - can only have one mutable reference to the same data in the same scope (new Rustaceans struggle with this because most languages let you mutate whenever you’d like but it's used to prevent `data races` at compile time)
 - Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used
-
-Reference Rules:
-- At any given time, you can have either one mutable reference or any number of immutable references.
-- References must always be valie (no `dangling` refs)
 
 ## Slices
 
