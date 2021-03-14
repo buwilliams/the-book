@@ -27,8 +27,8 @@ Reading and working through the exercises provided in [The Book](https://doc.rus
 ## Functions
 - fn (snakecase and lowercase: my_awesome_function)
 - Rust is an expression-based language
-- Statements are instructions that perform some action and do not return a value.
-- Expressions evaluate to a resulting value. Expressions do not have semicolons
+- `Statements` are instructions that perform some action and do not return a value.
+- `Expressions` evaluate to a resulting value. Expressions do not have semicolons
 - {} are expressions let y = { let x = 3 x + 1 };
 - return is signified by an arrow `->` (fn foo() -> u32 {})
 - return synonymous with the value of the final expression in the block of the body of a function therefore `return` is optional
