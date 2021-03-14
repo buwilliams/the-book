@@ -52,22 +52,19 @@ fn foo() -> u32 {
 
 ## Ownership (or memory management)
 
-- move, drop, copy, clone
-- garbage colleciton, manual allocation
-- Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
-- stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
-
 Three rules of ownership:
 1. each value in rust has a variable owner
 2. there can only be one owner
 3. when the owner goes out of scope, the value is dropped
 
-More on ownership:
-- passing ownership is called `move`
+- Rust does not use garbage colleciton or manual allocation
+- Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
+- `move` passes ownership from one variable to another
+- `drop` cleans up memory when variables go out of scope
+- stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
 - double assignment invalidates the original variable
-- shallow and deep copy of memory (stack, heap)
-- clone (heap) and copy (stack)
-- annotation: copy, drop
+- `copy` creates shallow copy on the stack
+- `clone` duplicates memory on the heep
 - simple scalar values use copy annotation (but nothing that uses allocation)
 - passing a value to a function changes it's ownership to that function scope (important)
 
