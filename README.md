@@ -79,7 +79,7 @@ Rules:
 2. References must always be valid (no `dangling` refs)
 
 Borrowing:
-- having a reference is called `borrowing`
+- having a reference as a function parameter is called `borrowing`
 - `&` ampersands are references, and they allow you to refer to some value without taking ownership of it.
 - `*` is used for dereferencing
 
