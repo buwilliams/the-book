@@ -78,10 +78,13 @@ Rules:
 1. At any given time, you can have either one mutable reference or any number of immutable references.
 2. References must always be valid (no `dangling` refs)
 
+Borrowing:
+- having a reference is called `borrowing`
+- `&` ampersands are references, and they allow you to refer to some value without taking ownership of it.
+- `*` is used for dereferencing
+
 Notes:
-- having a referencing is called `borrowing`
 - **reference data is immutable** since we do not own the referenced data
-- `&` denotes a reference, dereferencing uses `*`
 - we can mutate references if we use `&mut some_var` and `fn(foo: &mut String)`
 - can only have one mutable reference to the same data in the same scope (new Rustaceans struggle with this because most languages let you mutate whenever you’d like but it's used to prevent `data races` at compile time)
 - Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used
