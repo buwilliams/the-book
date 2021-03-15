@@ -20,7 +20,9 @@ Reading and working through the exercises provided in [The Rust Programming Lang
 ## Data Types
 
 - Scalar Types: integer=u32, floating-point numbers=f64, Booleans=bool, and characters=char
-- Compound Types: tuples=tup (fixed size of different types), arrays=array (fixed size of same type)
+- Compound Types
+    - `tup` (tuples) fixed size of different types `let tup: (i32, u32, str) = (-1, 2, "hello");`
+    - `array` fixed size of same type `let a = [1, 2, 3, 4, 5];`
 - Vectors (dynamic size)
 - integer types default to `i32`
 
