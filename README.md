@@ -119,7 +119,7 @@ struct User {
 }
 ```
 
-- `impl` structs can have methods as well
+- `impl` - structs can have methods as well
 
 ```rust
 impl User {
