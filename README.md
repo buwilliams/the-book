@@ -106,3 +106,29 @@ let hello = &s[..5]; // slice
 let a = [1, 2, 3, 4, 5];
 let slice = &a[1..3];
 ```
+
+## Structs
+
+- structs are like tuples but with keyed indexes so they are more flexible because we do not need to rely on order
+
+```rust
+struct User {
+    email: String,
+    first_name: String,
+    last_name: String,
+}
+```
+
+- `impl` structs can have methods as well
+
+```rust
+impl User {
+    fn name(&self) -> String {
+        let mut s = String::from(&self.first_name);
+        s.push_str(" ");
+        s.push_str(&self.last_name);
+        s
+    }
+}
+```
+
