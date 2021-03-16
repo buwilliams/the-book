@@ -184,3 +184,17 @@ pub fn eat_at_restaurant() {
 - import glob shorthand `use std::io::*`
 - import module in a different file with `mod name` which loads `name.rs`
 
+## Common Collections
+
+- `Vec<T>` is a dynamic sized array, requires elments to be the same type `let v: Vec<i32> = Vec::new();`
+- `let v = vec![1, 2, 3];` is a vec macro with type inference
+- getting values from Vectors is easy `&v[0]` or `v.get(0)`
+- adding values is easy too `v.push(4)` also `pop` is available
+- iterating over a vector `for i in &v { //snip }`
+
+```rust
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+    *i += 50;
+}
+```
