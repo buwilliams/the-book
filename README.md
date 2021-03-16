@@ -186,6 +186,11 @@ pub fn eat_at_restaurant() {
 
 ## Common Collections
 
+- All common collections are stored on the `heap`
+- Methods exist for collections such as `new` among others
+
+### Vectors
+
 - `Vec<T>` is a dynamic sized array, requires elments to be the same type `let v: Vec<i32> = Vec::new();`
 - `let v = vec![1, 2, 3];` is a vec macro with type inference
 - getting values from Vectors is easy `&v[0]` or `v.get(0)`
@@ -198,3 +203,26 @@ for i in &mut v {
     *i += 50;
 }
 ```
+
+### Strings
+
+- `Strings` are types of collections as well.
+- `String::new`, `String::from("Hello, world.")`
+- `format!` is a macro for string concatenation, for example: `println!("{}", format!("{} {}!", String::from("Hello"), String::from("world")));`
+- `&s[0..1]` is used to access substrings because `&s[0]` will not compile since Strings are complicated
+- `s.chars()` to iterate over a string
+
+### Hash maps
+
+```rust
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Yellow"), 50);
+```
+
+- `.insert()` to add a new key/value entry
+- `.entry(key).or_insert(value)` to insert if key doesn't already have a value, (entry returns a enum)
+
