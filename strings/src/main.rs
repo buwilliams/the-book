@@ -5,4 +5,9 @@ fn main() {
     w.push_str("World!");
     let hello = format!("{} {}", s, w);
     println!("{}", hello);
+
+    println!("{}", format!("{} {}!", String::from("Hello"), String::from("world")));
+
+    let a = format!("{} {}!", String::from("Hello"), String::from("world"));
+    println!("{}", &a[0..1]);
 }
