@@ -12,7 +12,7 @@ Reading and working through the exercises provided in [The Rust Programming Lang
 - rustup, rustup update
 - cargo new, cargo run, cargo build, cargo build --release, cargo doc, cargo update
 - Cargo.toml, Cargo.lock, semver
-- While rust is flexible, it also leverages the benfits of conventions such as `src/bin/*.rs`, `src/main.rs`, and `src/lib.rs`
+- While rust is flexible, it also leverages the benfits of conventions such as `src/bin/*.rs`, `src/main.rs`, `src/lib.rs`, and code privacy by default
 
 ## Guessing Game
 - use, loop, fn, println! (macro), let, match
@@ -157,5 +157,30 @@ let loopback = IpAddr::V6(String::from("::1"));
 - `src/main.rs`, `src/lib.rs`, `src/bin/*.rs` are conventions for defining the starting places in a crate
 - Helpful concepts from resturants: `front of house` (public) and `back of house` (private)
 - `module tree` is how modules are organized in rust projects, they are similar to file system directories
-- `paths` are how we access `modules`, two forms `absolute` or `relative`, nesting is separated by the use of `::`
+- `paths` are how we access `modules`, two forms `absolute` or `relative` (`self` or `super`), nesting is separated by the use of `::`
+
+```rust
+mod front_of_house {
+    mod hosting {
+        fn add_to_waitlist() {}
+    }
+}
+
+pub fn eat_at_restaurant() {
+    // Absolute path
+    crate::front_of_house::hosting::add_to_waitlist();
+
+    // Relative path
+    front_of_house::hosting::add_to_waitlist();
+}
+```
+
+- all code is private to the outside by default, you make it public with `pub` keyword before definition
+- `use` is similar to symlinks for the file system allowing us to bring code into scope
+- you can alias a module with `as`, for example: `use std::io::Result as IoResult`
+- for modules `use` the parent containing scope, for structs use full path as convention
+- `re-exporting` is how we bring a module into scope and allow code which calls us to use it as well with `pub use`
+- importing multiple modules shorthand `use std::io::{self, Write};`
+- import glob shorthand `use std::io::*`
+- import module in a different file with `mod name` which loads `name.rs`
 
