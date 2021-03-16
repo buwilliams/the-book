@@ -12,6 +12,7 @@ Reading and working through the exercises provided in [The Rust Programming Lang
 - rustup, rustup update
 - cargo new, cargo run, cargo build, cargo build --release, cargo doc, cargo update
 - Cargo.toml, Cargo.lock, semver
+- While rust is flexible, it also leverages the benfits of conventions such as `src/bin/*.rs`, `src/main.rs`, and `src/lib.rs`
 
 ## Guessing Game
 - use, loop, fn, println! (macro), let, match
@@ -131,4 +132,30 @@ impl User {
     }
 }
 ```
+
+## Enums
+
+- enums are similar to structs but with several differences
+- enums can hold different amounts of data
+
+```rust
+enum IpAddr {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+let home = IpAddr::V4(127, 0, 0, 1);
+
+let loopback = IpAddr::V6(String::from("::1"));
+```
+
+- in rust the `Option<T>` enum replaces the need for `null` with `Some<T>` and `None`
+- `if let` is similar to `matches`. `if let` allows you to match on a subset of possible enums
+
+## Manage growing projects
+
+- `src/main.rs`, `src/lib.rs`, `src/bin/*.rs` are conventions for defining the starting places in a crate
+- Helpful concepts from resturants: `front of house` (public) and `back of house` (private)
+- `module tree` is how modules are organized in rust projects, they are similar to file system directories
+- `paths` are how we access `modules`, two forms `absolute` or `relative`, nesting is separated by the use of `::`
 
