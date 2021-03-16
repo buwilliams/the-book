@@ -226,3 +226,4 @@ scores.insert(String::from("Yellow"), 50);
 - `.insert()` to add a new key/value entry
 - `.entry(key).or_insert(value)` to insert if key doesn't already have a value, (entry returns a enum)
 
+## Handling errors
