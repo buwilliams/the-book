@@ -227,3 +227,92 @@ scores.insert(String::from("Yellow"), 50);
 - `.entry(key).or_insert(value)` to insert if key doesn't already have a value, (entry returns a enum)
 
 ## Handling errors
+
+- Rust does not have Exceptions like other languages
+- Instead Rust has `panic!` macro or `Result<T, E>` which distinguishes between **recoverable** and **unrecoverable** errors
+
+### panic!
+
+- `panic!` is a macro which is unrecoverable. It cleans up memory and exits the program.
+- `RUST_BACKTRACE=1 cargo run` to view the backtrace from a panic
+
+To improve performance, we can ask the compiler to not unwind the memory via:
+```toml
+[profile.release]
+panic = 'abort'
+```
+
+### Result<T, E>
+
+- `Result<T, E>` the T and E are generic types
+- You can view the return type by reading the api docs or by assigning it an invalid type and letting the compiler tell us
+- `Ok` and `Err` are brought into scope by prelude, so we don't need to specify `Result::`
+- To handle returning multiple types of errors from a function use the trait object `Box<dyn Error>`, for example: `Result<T, Box<dyn Error>>`
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let f = File::open("hello.txt");
+
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => panic!("Problem opening the file: {:?}", error),
+    };
+}
+```
+
+**Propagating errors**
+```rust
+use std::fs::File;
+use std::io;
+use std::io::Read;
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let f = File::open("hello.txt");
+
+    let mut f = match f {
+        Ok(file) => file,
+        Err(e) => return Err(e),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&mut s) {
+        Ok(_) => Ok(s),
+        Err(e) => Err(e),
+    }
+}
+```
+
+**Propagating errors via shorthand `?`**
+
+```rust
+use std::fs::File;
+use std::io;
+use std::io::Read;
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut f = File::open("hello.txt")?;
+    let mut s = String::new();
+    f.read_to_string(&mut s)?; // <-- shorthand here
+    Ok(s)
+}
+```
+
+**Chaining error shorthands**
+```rust
+use std::fs::File;
+use std::io;
+use std::io::Read;
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut s = String::new();
+
+    File::open("hello.txt")?.read_to_string(&mut s)?; // <-- shorthand chaining here
+
+    Ok(s)
+}
+```
+
+
