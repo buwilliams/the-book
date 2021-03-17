@@ -317,3 +317,30 @@ fn read_username_from_file() -> Result<String, io::Error> {
 ```
 
 ## Generic Type, Traits, and Lifetimes
+
+- Generics are used to remove code duplication. Consider two function which do the exact same thing but need to take in different types as parameters, this is where generics come in.
+- Functions: `fn some_name<T>(item: T) -> &T`, notice `<T>` goes between the name and parameters
+- Structs: `struct SomeName<T> { x: T }` or `struct some_name<T, U> { x: T, y: U }`
+- Enums: `enum SomeName<T> { Some(T), None }`
+- Implement: `impl<T> Point<T> { fn x(&self) -> &T { &self.x } }`
+- To solve for runtime performance, Rust's compiler uses `monomorphization` to search through the code and fine all the uses to put in the specific types used so that the code is compiled with specific types. Therefore, there is no runtime cost to use generics.
+
+**Option<T> compiled(ish)**
+
+```rust
+enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+
+fn main() {
+    let integer = Option_i32::Some(5);
+    let float = Option_f64::Some(5.0);
+}
+```
+
