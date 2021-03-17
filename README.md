@@ -249,6 +249,7 @@ panic = 'abort'
 - `Ok` and `Err` are brought into scope by prelude, so we don't need to specify `Result::`
 - To handle returning multiple types of errors from a function use the trait object `Box<dyn Error>`, for example: `Result<T, Box<dyn Error>>`
 
+**Using match**
 ```rust
 use std::fs::File;
 
@@ -315,4 +316,4 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
-
+## Generic Type, Traits, and Lifetimes
