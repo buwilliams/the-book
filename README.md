@@ -316,7 +316,9 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
-## Generic Type, Traits, and Lifetimes
+## Generic Types, Traits, and Lifetimes
+
+### Generics
 
 - Generics are used to remove code duplication. Consider two function which do the exact same thing but need to take in different types as parameters, this is where generics come in.
 - Functions: `fn some_name<T>(item: T) -> &T`, notice `<T>` goes between the name and parameters
@@ -341,6 +343,48 @@ enum Option_f64 {
 fn main() {
     let integer = Option_i32::Some(5);
     let float = Option_f64::Some(5.0);
+}
+```
+
+### Traits
+
+- `Traits` are like `interfaces` in other languages which some differences, they define behavior that types must implement.
+
+**Basic Trait**
+
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+```
+
+**Implement a trait**
+
+```rust
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
 }
 ```
 
