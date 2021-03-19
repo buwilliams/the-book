@@ -51,7 +51,7 @@ fn foo() -> u32 {
 ## Control flow
 
 - if, loop, while, for (no parens used)
-- they are expressions which means they can be assigned
+- they are expressions which means they can be assigned to varibles
 
 ## Ownership
 
@@ -62,11 +62,11 @@ Three rules of ownership:
 
 Notes:
 
-- Rust does not use garbage colleciton or manual allocation
+- Rust does not use garbage colleciton or manual memory allocation
 - Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time.
 - `move` passes ownership from one variable to another
 - `drop` cleans up memory when variables go out of scope
-- stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
+- Two parts of memory: stack (of plates, fixed size, last in/first out), heap (less organized, free allocated memory)
 - double assignment invalidates the original variable
 - `copy` creates shallow copy on the stack
 - `clone` duplicates memory on the heep
