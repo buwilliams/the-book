@@ -349,6 +349,10 @@ fn main() {
 ### Traits
 
 - `Traits` are like `interfaces` in other languages which some differences, they define behavior that types must implement.
+- You can implment default traits for a type by using one method which calls others
+- Traits may be used as parameters `pub fn notify(item: &impl Summary) {`, notice the `&impl`
+- `Trait bound` syntax looks like this: `pub fn notify<T: Summary>(item: &T) {`
+- Another example with multiple traits: `pub fn notify<T: Summary + Display>(item: &T) {`
 
 **Basic Trait**
 
@@ -358,7 +362,7 @@ pub trait Summary {
 }
 ```
 
-**Implement a trait**
+**Implement a trait on a type**
 
 ```rust
 pub struct NewsArticle {
@@ -387,4 +391,31 @@ impl Summary for Tweet {
     }
 }
 ```
+
+**Multiple function traits with `where`**
+
+```rust
+fn some_function<T, U>(t: &T, u: &U) -> i32
+    where T: Display + Clone,
+          U: Clone + Debug
+{
+    // snip
+}
+```
+
+**Return types which implement traits**
+
+```rust
+fn returns_summarizable() -> impl Summary { // notice impl
+    // snip
+}
+```
+
+## Lifetimes
+
+- Every reference in Rust has a `lifetime`, most of the time, lifetimes are implicit and inferred
+- But we need to annotate lifetimes when multiple lifetimes are possible and cannot be inferred
+- Lifetimes are somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature
+- The main aim of lifetimes is to prevent dangling references, which cause a program to reference data other than the data it’s intended to reference
+- The borrow checker automatically assignes lifetimes
 
