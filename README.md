@@ -418,4 +418,3 @@ fn returns_summarizable() -> impl Summary { // notice impl
 - Lifetimes are somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature
 - The main aim of lifetimes is to prevent dangling references, which cause a program to reference data other than the data it’s intended to reference
 - The borrow checker automatically assignes lifetimes
-
