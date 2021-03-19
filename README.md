@@ -4,7 +4,7 @@ Reading and working through the exercises provided in [The Rust Programming Lang
 
 ## Introduction
 
-- Hello, world. Rust=0.001,0 Node.js=0.026,0.026
+- `time` for simple Hello, world app on my machine. (Rust=0.001) and (Node.js=0.026)
 - "The Book" is approachable
 - Rust is on to something: High-level ergonomics and low-level control are often at odds in programming language design; Rust challenges that conflict. (Introduction, first paragraph)
 - Immutability by default!
