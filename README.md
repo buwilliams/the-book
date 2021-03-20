@@ -418,3 +418,18 @@ fn returns_summarizable() -> impl Summary { // notice impl
 - Lifetimes are somewhat different from tools in other programming languages, arguably making lifetimes Rust’s most distinctive feature
 - The main aim of lifetimes is to prevent dangling references, which cause a program to reference data other than the data it’s intended to reference
 - The borrow checker automatically assignes lifetimes
+
+## Automated Tests
+
+- Tests are annotated with `#[test]`
+- Tests follow module scoping, often we use `use super::*` within the test module
+- Assertions: bool -> `assert!(left, right, [message])`, equality -> `assert_eq!(left, right)`, inequality -> `assert_ne!(left, right)`
+- Custom error messages with `assert!(left, right, message)`
+- Capture `panic!` with annotation `#[should_panic]`
+- Use `Result<T, E>` in tests by `fn it_works() -> Result<(), String> {`
+
+## Test organization
+
+- Convention is to put the unit tests in the same file in a `tests` module and `#[cfg(test)]` annotation
+- The `cfg` annotation stands for `configuration` and should only be included given certain configuration option, `test` is the configuration option for unit tests.
+- Integration tests are stored in the root directory under `./tests` directory
